@@ -6,12 +6,7 @@
     <title>الارتقاء سوفت - لوحة التحكم</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: radial-gradient(circle at 20% 30%, #0a0c12, #030507);
             font-family: 'Segoe UI', 'Tajawal', monospace;
@@ -19,8 +14,6 @@
             display: flex;
             min-height: 100vh;
         }
-
-        /* القائمة الجانبية */
         .sidebar {
             width: 260px;
             background: #0f1420cc;
@@ -32,225 +25,38 @@
             height: 100vh;
             overflow-y: auto;
         }
-
-        .logo-sidebar {
-            text-align: center;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #2a3b5c;
-        }
-
-        .sidebar-logo {
-            width: 100%;
-            max-width: 180px;
-            border-radius: 20px;
-            margin-bottom: 10px;
-        }
-
-        .sidebar-slogan {
-            font-size: 0.7rem;
-            color: #aac3ff;
-        }
-
-        .sidebar a {
-            color: #ccdeff;
-            text-decoration: none;
-            padding: 12px 18px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-            transition: 0.2s;
-        }
-
-        .sidebar a:hover {
-            background: #1f2f4f;
-            color: white;
-        }
-
-        /* المحتوى الرئيسي */
-        .main-content {
-            flex: 1;
-            padding: 25px 35px;
-            overflow-y: auto;
-            direction: rtl;
-        }
-
-        /* البطاقات */
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .drive-card {
-            background: rgba(18, 25, 45, 0.75);
-            backdrop-filter: blur(8px);
-            border-radius: 28px;
-            padding: 20px;
-            flex: 1;
-            min-width: 220px;
-            text-align: center;
-            border: 1px solid #2a3a55;
-            transition: 0.2s;
-        }
-
-        .drive-card:hover {
-            transform: translateY(-5px);
-            border-color: #3b6eff;
-        }
-
-        .drive-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .drive-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            background: #00000030;
-            padding: 4px 12px;
-            border-radius: 40px;
-        }
-
-        .drive-stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 12px 0;
-            font-size: 0.8rem;
-            color: #b8ceff;
-        }
-
-        .progress-bar-bg {
-            background: #1f2a44;
-            height: 8px;
-            border-radius: 10px;
-            margin: 10px auto;
-            width: 90%;
-        }
-
-        .progress-fill {
-            height: 8px;
-            border-radius: 10px;
-            transition: width 0.3s;
-        }
-
-        .resource-card {
-            background: rgba(12, 18, 32, 0.8);
-            backdrop-filter: blur(8px);
-            border-radius: 28px;
-            padding: 20px;
-            flex: 1;
-            min-width: 180px;
-            text-align: center;
-            border: 1px solid #2a3a55;
-        }
-
-        .resource-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .value-big {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .status-indicators {
-            display: flex;
-            gap: 15px;
-            justify-content: flex-end;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #0f1420aa;
-            padding: 5px 15px;
-            border-radius: 40px;
-        }
-
-        .status-led {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
+        .logo-sidebar { text-align: center; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #2a3b5c; }
+        .sidebar-logo { width: 100%; max-width: 180px; border-radius: 20px; margin-bottom: 10px; }
+        .sidebar-slogan { font-size: 0.7rem; color: #aac3ff; }
+        .sidebar a { color: #ccdeff; text-decoration: none; padding: 12px 18px; border-radius: 30px; display: flex; align-items: center; gap: 12px; margin-bottom: 8px; transition: 0.2s; }
+        .sidebar a:hover { background: #1f2f4f; color: white; }
+        .main-content { flex: 1; padding: 25px 35px; overflow-y: auto; direction: rtl; }
+        .cards-grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin-bottom: 40px; }
+        .drive-card { background: rgba(18, 25, 45, 0.75); backdrop-filter: blur(8px); border-radius: 28px; padding: 20px; flex: 1; min-width: 220px; text-align: center; border: 1px solid #2a3a55; transition: 0.2s; }
+        .drive-card:hover { transform: translateY(-5px); border-color: #3b6eff; }
+        .drive-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .drive-name { font-size: 1.3rem; font-weight: bold; background: #00000030; padding: 4px 12px; border-radius: 40px; }
+        .drive-stats { display: flex; justify-content: center; gap: 20px; margin: 12px 0; font-size: 0.8rem; color: #b8ceff; }
+        .progress-bar-bg { background: #1f2a44; height: 8px; border-radius: 10px; margin: 10px auto; width: 90%; }
+        .progress-fill { height: 8px; border-radius: 10px; transition: width 0.3s; }
+        .resource-card { background: rgba(12, 18, 32, 0.8); backdrop-filter: blur(8px); border-radius: 28px; padding: 20px; flex: 1; min-width: 180px; text-align: center; border: 1px solid #2a3a55; }
+        .resource-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .value-big { font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
+        .status-indicators { display: flex; gap: 15px; justify-content: flex-end; margin-bottom: 25px; flex-wrap: wrap; }
+        .status-badge { display: inline-flex; align-items: center; gap: 8px; background: #0f1420aa; padding: 5px 15px; border-radius: 40px; }
+        .status-led { width: 12px; height: 12px; border-radius: 50%; }
         .status-led.green { background: #2ecc71; }
         .status-led.orange { background: #f39c12; }
         .status-led.red { background: #e74c3c; }
-
         .status-text-green { color: #2ecc71; }
         .status-text-orange { color: #f39c12; }
         .status-text-red { color: #e74c3c; }
-
         .status-hint { font-size: 0.7rem; color: #aaa; }
-
-        button {
-            background: #1f3a6b;
-            border: none;
-            color: white;
-            padding: 10px 28px;
-            border-radius: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 10px auto;
-            display: inline-block;
-        }
-
-        button:hover {
-            background: #3b6eff;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.75rem;
-            color: #5580c0;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            margin: 30px 0 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #3b6eff;
-            display: inline-block;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .sidebar a {
-                padding: 8px 14px;
-            }
-            .main-content {
-                padding: 20px;
-            }
-        }
+        button { background: #1f3a6b; border: none; color: white; padding: 10px 28px; border-radius: 40px; font-weight: bold; cursor: pointer; margin: 10px auto; display: inline-block; }
+        button:hover { background: #3b6eff; }
+        footer { text-align: center; margin-top: 40px; font-size: 0.75rem; color: #5580c0; }
+        .section-title { font-size: 1.4rem; margin: 30px 0 20px; padding-bottom: 8px; border-bottom: 2px solid #3b6eff; display: inline-block; text-align: center; }
+        @media (max-width: 768px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; flex-direction: row; flex-wrap: wrap; justify-content: center; } .sidebar a { padding: 8px 14px; } .main-content { padding: 20px; } }
     </style>
 </head>
 <body>
@@ -273,23 +79,14 @@
 </div>
 
 <script>
-    // بيانات الأقراص
     let drives = [
         { name: "القرص C:", total: 237, used: 212 },
         { name: "القرص D:", total: 512, used: 340 },
         { name: "القرص E:", total: 1000, used: 390 },
         { name: "القرص F:", total: 256, used: 98 }
     ];
-
-    // بيانات النظام
-    let systemStats = {
-        cpu: 41,
-        ramUsed: 7.8,
-        ramTotal: 16,
-        temp: 50,
-        battery: 70,
-        charging: true
-    };
+    let systemStats = { cpu: 41, ramUsed: 7.8, ramTotal: 16, temp: 50, battery: 70, charging: true };
+    let currentPage = 'dashboard';
 
     function getPercentage(used, total) { return (used / total) * 100; }
     function getLedColor(percent) {
@@ -297,104 +94,50 @@
         if (percent >= 50) return "#f39c12";
         return "#2ecc71";
     }
-
-    // تحديث البيانات (محاكاة)
     function refreshData() {
-        drives.forEach(d => {
-            let change = (Math.random() * 12) - 4;
-            let newUsed = d.used + change;
-            if (newUsed < 5) newUsed = 5;
-            if (newUsed > d.total - 2) newUsed = d.total - 2;
-            d.used = parseFloat(newUsed.toFixed(1));
-        });
+        drives.forEach(d => { let change = (Math.random() * 12) - 4; let newUsed = d.used + change; if (newUsed < 5) newUsed = 5; if (newUsed > d.total - 2) newUsed = d.total - 2; d.used = parseFloat(newUsed.toFixed(1)); });
         systemStats.cpu = Math.floor(Math.random() * 70) + 8;
         systemStats.ramUsed = parseFloat((Math.random() * 12 + 2).toFixed(1));
         systemStats.temp = Math.floor(Math.random() * 30) + 35;
         showPage(currentPage);
     }
-
-    let currentPage = 'dashboard';
-
-    // عرض لوحة التحكم
     function renderDashboard() {
         let drivesHtml = '';
         drives.forEach(d => {
             const percent = getPercentage(d.used, d.total).toFixed(1);
             const free = (d.total - d.used).toFixed(1);
             const ledColor = getLedColor(percent);
-            drivesHtml += `
-                <div class="drive-card">
-                    <div class="drive-header">
-                        <span class="drive-name">${d.name}</span>
-                        <div class="led-indicator" style="width: 16px; height: 16px; background: ${ledColor}; border-radius: 50%; box-shadow: 0 0 6px ${ledColor};"></div>
-                    </div>
-                    <div class="drive-stats">
-                        <div>🆓 حر: ${free} GB</div>
-                        <div>💾 مستخدم: ${d.used} GB</div>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div class="progress-fill" style="width: ${percent}%; background: ${ledColor};"></div>
-                    </div>
-                    <div style="margin-top: 8px;">نسبة الإشغال: ${percent}%</div>
-                </div>
-            `;
+            drivesHtml += `<div class="drive-card"><div class="drive-header"><span class="drive-name">${d.name}</span><div style="width:16px; height:16px; background:${ledColor}; border-radius:50%; box-shadow:0 0 6px ${ledColor};"></div></div><div class="drive-stats"><div>🆓 حر: ${free} GB</div><div>💾 مستخدم: ${d.used} GB</div></div><div class="progress-bar-bg"><div class="progress-fill" style="width:${percent}%; background:${ledColor};"></div></div><div style="margin-top:8px;">نسبة الإشغال: ${percent}%</div></div>`;
         });
-
-        const statusIndicators = `
-            <div class="status-indicators">
-                <div class="status-badge"><span class="status-led green"></span><span class="status-text-green">نشط</span><span class="status-hint">&lt;50%</span></div>
-                <div class="status-badge"><span class="status-led orange"></span><span class="status-text-orange">تحذير</span><span class="status-hint">50%-85%</span></div>
-                <div class="status-badge"><span class="status-led red"></span><span class="status-text-red">حرج</span><span class="status-hint">&gt;85%</span></div>
-            </div>
-        `;
-
         const cpuPercent = systemStats.cpu;
         const ramPercent = (systemStats.ramUsed / systemStats.ramTotal) * 100;
         const tempColor = systemStats.temp <= 50 ? "#2ecc71" : (systemStats.temp <= 70 ? "#f39c12" : "#e74c3c");
         const tempText = systemStats.temp <= 50 ? "ممتاز" : (systemStats.temp <= 70 ? "معتدل" : "مرتفع");
-
         return `
             <h1>🖥️ لوحة تحكم النظام الذكية</h1>
             <p>حالة الأجهزة والموارد</p>
-            ${statusIndicators}
+            <div class="status-indicators"><div class="status-badge"><span class="status-led green"></span><span class="status-text-green">نشط</span><span class="status-hint">&lt;50%</span></div><div class="status-badge"><span class="status-led orange"></span><span class="status-text-orange">تحذير</span><span class="status-hint">50%-85%</span></div><div class="status-badge"><span class="status-led red"></span><span class="status-text-red">حرج</span><span class="status-hint">&gt;85%</span></div></div>
             <div class="section-title">💿 وحدات التخزين (الأقراص)</div>
             <div class="cards-grid">${drivesHtml}</div>
             <div class="section-title">⚙️ أداء النظام الحي</div>
             <div class="cards-grid">
-                <div class="resource-card"><div class="resource-title">🧠 المعالج CPU</div><div class="value-big">${cpuPercent}%</div><div class="progress-bar-bg"><div class="progress-fill" style="width: ${cpuPercent}%; background: #3b6eff;"></div></div></div>
-                <div class="resource-card"><div class="resource-title">📀 الذاكرة RAM</div><div class="value-big">${systemStats.ramUsed} / ${systemStats.ramTotal} GB</div><div class="progress-bar-bg"><div class="progress-fill" style="width: ${ramPercent}%; background: #9b59b6;"></div></div></div>
-                <div class="resource-card"><div class="resource-title">🌡️ الحرارة</div><div class="value-big">${systemStats.temp}°C</div><div class="progress-bar-bg"><div class="progress-fill" style="width: ${systemStats.temp}%; background: ${tempColor};"></div></div><div>${tempText}</div></div>
-                <div class="resource-card"><div class="resource-title">🔋 البطارية</div><div class="value-big">${systemStats.battery}%</div><div class="progress-bar-bg"><div class="progress-fill" style="width: ${systemStats.battery}%; background: #2ecc71;"></div></div><div>${systemStats.charging ? "موصول بالشاحن" : "بطارية"}</div></div>
+                <div class="resource-card"><div class="resource-title">🧠 المعالج CPU</div><div class="value-big">${cpuPercent}%</div><div class="progress-bar-bg"><div class="progress-fill" style="width:${cpuPercent}%; background:#3b6eff;"></div></div></div>
+                <div class="resource-card"><div class="resource-title">📀 الذاكرة RAM</div><div class="value-big">${systemStats.ramUsed} / ${systemStats.ramTotal} GB</div><div class="progress-bar-bg"><div class="progress-fill" style="width:${ramPercent}%; background:#9b59b6;"></div></div></div>
+                <div class="resource-card"><div class="resource-title">🌡️ الحرارة</div><div class="value-big">${systemStats.temp}°C</div><div class="progress-bar-bg"><div class="progress-fill" style="width:${systemStats.temp}%; background:${tempColor};"></div></div><div>${tempText}</div></div>
+                <div class="resource-card"><div class="resource-title">🔋 البطارية</div><div class="value-big">${systemStats.battery}%</div><div class="progress-bar-bg"><div class="progress-fill" style="width:${systemStats.battery}%; background:#2ecc71;"></div></div><div>${systemStats.charging ? "موصول بالشاحن" : "بطارية"}</div></div>
             </div>
             <button onclick="refreshData(); showPage('dashboard');">⟳ تحديث البيانات</button>
             <footer>⚡ بيانات تفاعلية – لوحة تحكم احترافية | الارتقاء سوفت</footer>
         `;
     }
-
-    // عرض الإحصائيات
     function renderStats() {
         let totalSpace = 0, totalUsed = 0;
         drives.forEach(d => { totalSpace += d.total; totalUsed += d.used; });
         const usedPercent = ((totalUsed / totalSpace) * 100).toFixed(1);
-        return `
-            <h1>📊 لوحة الإحصائيات المتقدمة</h1>
-            <div class="cards-grid">
-                <div class="resource-card"><h3>🧠 CPU</h3><div class="value-big">${systemStats.cpu}%</div></div>
-                <div class="resource-card"><h3>📀 RAM</h3><div class="value-big">${systemStats.ramUsed} / ${systemStats.ramTotal} GB</div></div>
-                <div class="resource-card"><h3>🔋 البطارية</h3><div class="value-big">${systemStats.battery}%</div></div>
-            </div>
-            <div class="section-title">💿 إحصائيات التخزين</div>
-            <div class="cards-grid">
-                <div class="resource-card"><h3>💾 إجمالي</h3><div class="value-big">${totalSpace} GB</div></div>
-                <div class="resource-card"><h3>📀 مستخدم</h3><div class="value-big">${totalUsed} GB</div></div>
-                <div class="resource-card"><h3>📊 نسبة الإشغال</h3><div class="value-big">${usedPercent}%</div></div>
-            </div>
-        `;
+        return `<h1>📊 لوحة الإحصائيات المتقدمة</h1><div class="cards-grid"><div class="resource-card"><h3>🧠 CPU</h3><div class="value-big">${systemStats.cpu}%</div></div><div class="resource-card"><h3>📀 RAM</h3><div class="value-big">${systemStats.ramUsed} / ${systemStats.ramTotal} GB</div></div><div class="resource-card"><h3>🔋 البطارية</h3><div class="value-big">${systemStats.battery}%</div></div></div><div class="section-title">💿 إحصائيات التخزين</div><div class="cards-grid"><div class="resource-card"><h3>💾 إجمالي</h3><div class="value-big">${totalSpace} GB</div></div><div class="resource-card"><h3>📀 مستخدم</h3><div class="value-big">${totalUsed} GB</div></div><div class="resource-card"><h3>📊 نسبة الإشغال</h3><div class="value-big">${usedPercent}%</div></div></div>`;
     }
-
-    // عرض معلومات الجهاز
     function renderDevice() {
-        let batteryHtml = '<div class="resource-card"><h3>🔋 البطارية</h3><div>جاري التحميل...</div></div>';
+        let batteryHtml = '<div class="resource-card"><h3>🔋 البطارية</h3><div id="batteryInfo"><div class="value-big">--%</div><div>جاري التحميل...</div></div></div>';
         if (navigator.getBattery) {
             navigator.getBattery().then(battery => {
                 const percent = Math.floor(battery.level * 100);
@@ -402,33 +145,12 @@
                 const batteryDiv = document.getElementById('batteryInfo');
                 if (batteryDiv) batteryDiv.innerHTML = `<div class="value-big">${percent}%</div><div>${charging ? 'موصول بالشاحن 🔌' : 'يعمل على البطارية 🔋'}</div>`;
             });
-            batteryHtml = '<div class="resource-card"><h3>🔋 البطارية</h3><div id="batteryInfo"><div class="value-big">--%</div><div>جاري التحميل...</div></div></div>';
         }
-        return `
-            <h1>📟 معلومات الجهاز</h1>
-            <div class="cards-grid">
-                ${batteryHtml}
-                <div class="resource-card"><h3>🧠 المعالج</h3><div class="value-big">${navigator.hardwareConcurrency || 'غير معروف'}</div><div>عدد الأنوية</div></div>
-                <div class="resource-card"><h3>📀 الذاكرة</h3><div class="value-big">${navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'غير معروف'}</div></div>
-                <div class="resource-card"><h3>🖥️ الشاشة</h3><div class="value-big">${screen.width} × ${screen.height}</div></div>
-            </div>
-            <div class="note" style="margin-top:40px; text-align:center; color:#7aa9ff;">⚡ معلومات حقيقية من جهازك</div>
-        `;
+        return `<h1>📟 معلومات الجهاز</h1><div class="cards-grid">${batteryHtml}<div class="resource-card"><h3>🧠 المعالج</h3><div class="value-big">${navigator.hardwareConcurrency || 'غير معروف'}</div><div>عدد الأنوية</div></div><div class="resource-card"><h3>📀 الذاكرة</h3><div class="value-big">${navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'غير معروف'}</div></div><div class="resource-card"><h3>🖥️ الشاشة</h3><div class="value-big">${screen.width} × ${screen.height}</div></div></div><div style="margin-top:40px; text-align:center; color:#7aa9ff;">⚡ معلومات حقيقية من جهازك</div>`;
     }
-
-    // عرض لوحة المدير (مبسطة)
     function renderAdmin() {
-        return `
-            <h1>👑 لوحة المدير الشاملة</h1>
-            <div class="cards-grid">
-                <div class="resource-card"><h3>👥 المستخدمين</h3><div class="value-big">3</div></div>
-                <div class="resource-card"><h3>📋 العملاء</h3><div class="value-big">2</div></div>
-                <div class="resource-card"><h3>📊 الجلسات</h3><div class="value-big">5</div></div>
-            </div>
-        `;
+        return `<h1>👑 لوحة المدير الشاملة</h1><div class="cards-grid"><div class="resource-card"><h3>👥 المستخدمين</h3><div class="value-big">3</div></div><div class="resource-card"><h3>📋 العملاء</h3><div class="value-big">2</div></div><div class="resource-card"><h3>📊 الجلسات</h3><div class="value-big">5</div></div></div>`;
     }
-
-    // عرض الصفحة
     function showPage(page) {
         currentPage = page;
         const container = document.getElementById('mainContent');
@@ -438,8 +160,6 @@
         else if (page === 'device') container.innerHTML = renderDevice();
         else if (page === 'admin') container.innerHTML = renderAdmin();
         else container.innerHTML = renderDashboard();
-        
-        // تحديث البطارية بعد عرض الصفحة
         if (page === 'device' && navigator.getBattery) {
             navigator.getBattery().then(battery => {
                 const percent = Math.floor(battery.level * 100);
@@ -449,14 +169,7 @@
             });
         }
     }
-
-    // تسجيل الخروج
-    function logout() {
-        alert("تم تسجيل الخروج");
-        showPage('dashboard');
-    }
-
-    // عرض الصفحة الافتراضية
+    function logout() { alert("تم تسجيل الخروج"); showPage('dashboard'); }
     showPage('dashboard');
 </script>
 </body>
